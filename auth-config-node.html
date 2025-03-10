@@ -1,0 +1,48 @@
+<script type="text/javascript">
+    RED.nodes.registerType('auth-config-node', {
+        category: 'config',
+        color: '#a6bbcf',
+        defaults: {
+            name: { value: "" },
+            username: { value: "" },
+            password: { value: "" }
+        },
+        credentials: {
+            username: { type: "text" },
+            password: { type: "password" }
+        },
+        label: function() {
+            return this.name || "Auth Config Node";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="auth-config-node">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-config-input-name" placeholder="Node Name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-username"><i class="fa fa-user"></i> Username</label>
+        <input type="text" id="node-config-input-username" placeholder="API Username">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-password"><i class="fa fa-lock"></i> Password</label>
+        <input type="password" id="node-config-input-password" placeholder="API Password">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="auth-config-node">
+    <p>
+        The <b>Auth Config Node</b> is used to configure authentication for the ServiceTrade API. 
+        Provide your username and password, and the node will manage authentication for your flows.
+    </p>
+    <p>
+        <b>Fields:</b>
+        <ul>
+            <li><b>Name:</b> A name to identify the configuration.</li>
+            <li><b>Username:</b> Your ServiceTrade API username.</li>
+            <li><b>Password:</b> Your ServiceTrade API password.</li>
+        </ul>
+    </p>
+</script>

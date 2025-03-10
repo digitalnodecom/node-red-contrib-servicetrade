@@ -1,0 +1,28 @@
+{
+    "name": "@digitalnodecom/node-red-contrib-servicetrade",
+    "version": "1.0.0",
+    "description": "A custom Node-RED config node for ServiceTrade API authentication and GET method",
+    "main": "auth-config-node.js",
+    "dependencies": {
+        "axios": "^1.0.0",
+        "json2csv": "^6.0.0-alpha.2"
+    },
+    "keywords": [
+        "node-red",
+        "auth",
+        "config-node"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/digitalnodecom/node-red-contrib-servicetrade"
+    },
+    "node-red": {
+        "nodes": {
+            "auth-config-node": "auth-config-node.js",
+            "st-data-node": "st-data-node.js",
+            "json-to-csv": "json-to-csv.js"
+        }
+    },
+    "author": "Marko Matevski",
+    "license": "MIT"
+}

@@ -1,0 +1,145 @@
+
+
+<script type="text/html" data-template-name="get-st-data-node">
+   
+    <div class="form-row">
+        <label for="node-input-authConfig"><i class="fa fa-cog"></i> Auth Config</label>
+        <input type="text" id="node-input-authConfig" placeholder="Select Auth Config Node">
+    </div>
+    <div class="form-row">
+        <label for="node-input-url"><i class="fa fa-link"></i> URL</label>
+        <input type="text" id="node-input-url" placeholder="Enter the URL">
+    </div>
+    <div class="form-row">
+        <label for="node-input-servicetradeobject"><i class="fa fa-tasks"></i> Objects</label>
+        <select id="node-input-servicetradeobject">
+            <option value="">Choose an object...</option>
+            <option value="account">Account</option>
+            <option value="account-settings">Account Settings</option>
+            <option value="activity">Activity</option>
+            <option value="appointment">Appointment</option>
+            <option value="asset">Asset</option>
+            <option value="asset-definition">Asset Definition</option>
+            <option value="attachment">Attachment</option>
+            <option value="authentication">Authentication</option>
+            <option value="brand">Brand</option>
+            <option value="budget">Budget</option>
+            <option value="budget-category">Budget Category</option>
+            <option value="budget-line-item">Budget Line Item</option>
+            <option value="change-order">Change Order</option>
+            <option value="change-order-category">Change Order Category</option>
+            <option value="change-order-line-item">Change Order Line Item</option>
+            <option value="clockin-clockout">Clockin/Clockout</option>
+            <option value="comment">Comment</option>
+            <option value="company">Company</option>
+            <option value="contact">Contact</option>
+            <option value="contact-type">Contact Type</option>
+            <option value="content">Content</option>
+            <option value="contract">Contract</option>
+            <option value="contract-rule">Contract Rule</option>
+            <option value="deficiency">Deficiency</option>
+            <option value="deficiency-report">Deficiency Report</option>
+            <option value="eula">EULA</option>
+            <option value="entity-filter">Entity Filter</option>
+            <option value="external-id">ExternalId</option>
+            <option value="external-sync">ExternalSync</option>
+            <option value="external-system">ExternalSystem</option>
+            <option value="group-label">Group Label</option>
+            <option value="heartbeat">Heartbeat</option>
+            <option value="history">History</option>
+            <option value="import">Import</option>
+            <option value="invoice">Invoice</option>
+            <option value="invoice-item">Invoice Item</option>
+            <option value="invoice-recurrence">InvoiceRecurrence</option>
+            <option value="invoice-recurrence-item">InvoiceRecurrence Item</option>
+            <option value="job">Job</option>
+            <option value="job-context">Job Context</option>
+            <option value="job-type-group-label">Job Type Group Label</option>
+            <option value="job-item">JobItem</option>
+            <option value="legacy-lookup">LegacyLookup</option>
+            <option value="lib-item">LibItem</option>
+            <option value="library-task">LibraryTask</option>
+            <option value="library-tasklist">LibraryTasklist</option>
+            <option value="location">Location</option>
+            <option value="marketing">Marketing</option>
+            <option value="master-agreement">MasterAgreement</option>
+            <option value="message">Message</option>
+            <option value="payment">Payment</option>
+            <option value="payment-terms">Payment Terms</option>
+            <option value="quote">Quote</option>
+            <option value="quote-item">Quote Item</option>
+            <option value="quote-request">QuoteRequest</option>
+            <option value="quote-template">QuoteTemplate</option>
+            <option value="quote-template-item">QuoteTemplate Item</option>
+            <option value="region">Region</option>
+            <option value="role">Role</option>
+            <option value="scheduling-queue">Scheduling Queue</option>
+            <option value="service-item">Service Item</option>
+            <option value="service-line">Service Line</option>
+            <option value="service-recurrence">ServiceRecurrence</option>
+            <option value="service-request">ServiceRequest</option>
+            <option value="service-template">ServiceTemplate</option>
+            <option value="tag">Tag</option>
+            <option value="task">Task</option>
+            <option value="task-instance">Taskinstance</option>
+            <option value="task-list">Tasklist</option>
+            <option value="tax-rate">Tax Rate</option>
+            <option value="tax-group">TaxGroup</option>
+            <option value="terms">Terms</option>
+            <option value="time-card">Time Card</option>
+            <option value="time-card-comment">Time Card Comment</option>
+            <option value="time-card-day-log">Time Card Day Log</option>
+            <option value="token">Token</option>
+            <option value="user">User</option>
+            <option value="user-absence">User Absence</option>
+            <option value="user-group-label">User Group Label</option>
+            <option value="user-value">User Value</option>
+            <option value="warehouse">Warehouse</option>
+            <option value="webhook">Webhook</option>
+        </select>
+        
+    </div>
+    <div class="form-row" >
+        <label for="node-input-limit"><i class="fa fa-keyboard"></i> Limit</label>
+        <input type="number" id="node-input-limit" min="1" placeholder="Enter the limit">
+    </div>
+    <div class="form-row">
+        <label for="node-input-page"><i class="fa fa-clock"></i> Page</label>
+        <input type="number" id="node-input-page" placeholder="Enter the page">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="get-st-data-nodee">
+    <p>
+        The <b>GET Data Node</b> is used to make a GET request to the ServiceTrade API or other endpoints.
+        It requires an authentication token provided by an <b>Auth Config Node</b>.
+    </p>
+    <p>
+        <b>Fields:</b>
+        <ul>
+            <li><b>Name:</b> A name to identify the node.</li>
+            <li><b>Auth Config:</b> Select the Auth Config Node to retrieve the token.</li>
+            <li><b>URL:</b> The URL to make the GET request to. Can be overridden by a <code>msg.url</code> property.</li>
+        </ul>
+    </p>
+</script>
+<script type="text/javascript">
+    RED.nodes.registerType('get-st-data-node', {
+        category: 'service trade',
+        color: '#a6bbcf',
+        defaults: {
+            name: { value: "" },
+            authConfig: { type: "auth-config-node", required: true }, // Link to the auth config node
+            url: { value: "" },
+            servicetradeobject: { value: "" },
+            page: { value: "" },
+            limit: { value: "" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-download",
+        label: function () {
+            return this.name || "GET ServiceTrade Data Node";
+        }
+    });
+</script>
