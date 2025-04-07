@@ -17,37 +17,53 @@ module.exports = function (RED) {
                 const servicetradeobject = msg.servicetradeobject || config.servicetradeobject;
                 const limit = msg.limit || config.limit;
                 const page = msg.page || config.page;
+                const jobstatus = msg.jobstatus || config.jobstatus; // coming from frontend
+
                 if (!requestUrl) {
                     node.error('URL not specified');
                     return done();
                 }
-                if(servicetradeobject){
-                    requestUrl = requestUrl + "/" + servicetradeobject;
+
+                if (servicetradeobject) {
+                    requestUrl += `/${servicetradeobject}`;
                 }
-                if(limit){
-                    requestUrl = requestUrl + "?limit=" + limit;
+
+                // Build query parameters
+                const params = new URLSearchParams();
+
+                if (limit) params.append('limit', limit);
+                if (page) params.append('page', page);
+
+                if (jobstatus && Array.isArray(jobstatus)) {
+                    params.append('status', jobstatus.join(',')); // <-- comma-separated values
+                } else if (typeof jobstatus === 'string') {
+                    params.append('status', jobstatus);
                 }
-                if(page && limit){
-                    requestUrl = requestUrl + "&page=" + page;
+
+                const queryString = params.toString();
+                if (queryString) {
+                    requestUrl += `?${queryString}`;
                 }
-                if(page && !limit){
-                    requestUrl = requestUrl + "?page=" + page;
-                }
+
                 const axios = require('axios');
                 let requestConfig = {
                     method: 'get',
                     maxBodyLength: Infinity,
                     url: requestUrl,
                     headers: {
-                        'Cookie': `PHPSESSID=${authToken.data.authToken}` // Use the token
+                        'Cookie': `PHPSESSID=${authToken.data.authToken}`
                     }
                 };
 
                 const response = await axios.request(requestConfig);
 
                 msg.payload = response.data;
-                send(msg);
+                msg.limit = limit;
+                msg.page = page;
+                msg.servicetradeobject = servicetradeobject;
+                msg.jobstatus = jobstatus;
 
+                send(msg);
                 done();
             } catch (error) {
                 node.error('Error making GET request: ' + error.message, msg);

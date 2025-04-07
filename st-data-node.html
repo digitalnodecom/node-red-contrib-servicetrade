@@ -1,7 +1,5 @@
-
-
 <script type="text/html" data-template-name="get-st-data-node">
-   
+
     <div class="form-row">
         <label for="node-input-authConfig"><i class="fa fa-cog"></i> Auth Config</label>
         <input type="text" id="node-input-authConfig" placeholder="Select Auth Config Node">
@@ -15,89 +13,87 @@
         <select id="node-input-servicetradeobject">
             <option value="">Choose an object...</option>
             <option value="account">Account</option>
-            <option value="account-settings">Account Settings</option>
+            <option value="accountsettings">Account Settings</option>
             <option value="activity">Activity</option>
             <option value="appointment">Appointment</option>
-            <option value="asset">Asset</option>
-            <option value="asset-definition">Asset Definition</option>
+            <!--<option value="asset">Asset</option>
             <option value="attachment">Attachment</option>
-            <option value="authentication">Authentication</option>
             <option value="brand">Brand</option>
             <option value="budget">Budget</option>
-            <option value="budget-category">Budget Category</option>
-            <option value="budget-line-item">Budget Line Item</option>
-            <option value="change-order">Change Order</option>
-            <option value="change-order-category">Change Order Category</option>
-            <option value="change-order-line-item">Change Order Line Item</option>
-            <option value="clockin-clockout">Clockin/Clockout</option>
+            <option value="budgetcategory">Budget Category</option>
+            <option value="budgetlineitem">Budget Line Item</option>
+            <option value="changeorder">Change Order</option>
+            <option value="changeordercategory">Change Order Category</option>
+            <option value="changeorderlineitem">Change Order Line Item</option>
+            <option value="clockinclockout">Clockin/Clockout</option>
             <option value="comment">Comment</option>
-            <option value="company">Company</option>
-            <option value="contact">Contact</option>
-            <option value="contact-type">Contact Type</option>
             <option value="content">Content</option>
             <option value="contract">Contract</option>
-            <option value="contract-rule">Contract Rule</option>
-            <option value="deficiency">Deficiency</option>
-            <option value="deficiency-report">Deficiency Report</option>
-            <option value="eula">EULA</option>
-            <option value="entity-filter">Entity Filter</option>
-            <option value="external-id">ExternalId</option>
-            <option value="external-sync">ExternalSync</option>
-            <option value="external-system">ExternalSystem</option>
-            <option value="group-label">Group Label</option>
-            <option value="heartbeat">Heartbeat</option>
+            <option value="contractrule">Contract Rule</option>
+            <option value="deficiencyreport">Deficiency Report</option>
+            <option value="externalid">ExternalId</option>
             <option value="history">History</option>
             <option value="import">Import</option>
+            <option value="invoiceitem">Invoice Item</option>
+            <option value="invoicerecurrenceitem">InvoiceRecurrence Item</option>
+            <option value="jobitem">JobItem</option>
+            <option value="legacylookup">LegacyLookup</option>
+            <option value="librarytask">LibraryTask</option>
+            <option value="librarytasklist">LibraryTasklist</option>
+            <option value="token">Token</option>
+            <option value="quotetemplateitem">QuoteTemplate Item</option>
+            <option value="authentication">Authentication</option>
+            <option value="message">Message</option>
+            <option value="serviceitem">Service Item</option>
+            <option value="task">Task</option>
+            <option value="taskinstance">Taskinstance</option>
+            <option value="tasklist">Tasklist</option>
+            <option value="timecard">Time Card</option>
+            <option value="timecardcomment">Time Card Comment</option>
+            <option value="timecarddaylog">Time Card Day Log</option>-->
+            <option value="assetdefinition">Asset Definition</option>
+            <option value="company">Company</option>
+            <option value="contact">Contact</option>
+            <option value="contacttype">Contact Type</option>
+            <option value="deficiency">Deficiency</option>
+            <option value="eula">EULA</option>
+            <option value="entityfilter">Entity Filter</option>
+            <option value="externalsync">ExternalSync</option>
+            <option value="externalsystem">ExternalSystem</option>
+            <option value="grouplabel">Group Label</option>
+            <option value="">Heartbeat</option>   
             <option value="invoice">Invoice</option>
-            <option value="invoice-item">Invoice Item</option>
-            <option value="invoice-recurrence">InvoiceRecurrence</option>
-            <option value="invoice-recurrence-item">InvoiceRecurrence Item</option>
+            <option value="invoicerecurrence">InvoiceRecurrence</option>
             <option value="job">Job</option>
-            <option value="job-context">Job Context</option>
-            <option value="job-type-group-label">Job Type Group Label</option>
-            <option value="job-item">JobItem</option>
-            <option value="legacy-lookup">LegacyLookup</option>
-            <option value="lib-item">LibItem</option>
-            <option value="library-task">LibraryTask</option>
-            <option value="library-tasklist">LibraryTasklist</option>
+            <option value="jobcontext">Job Context</option>
+            <option value="jobtypegrouplabel">Job Type Group Label</option>
+            <option value="libitem">LibItem</option>
             <option value="location">Location</option>
             <option value="marketing">Marketing</option>
-            <option value="master-agreement">MasterAgreement</option>
-            <option value="message">Message</option>
+            <option value="masteragreement">MasterAgreement</option>
             <option value="payment">Payment</option>
-            <option value="payment-terms">Payment Terms</option>
+            <option value="paymentterms">Payment Terms</option>
             <option value="quote">Quote</option>
-            <option value="quote-item">Quote Item</option>
-            <option value="quote-request">QuoteRequest</option>
-            <option value="quote-template">QuoteTemplate</option>
-            <option value="quote-template-item">QuoteTemplate Item</option>
+            <option value="quoteitem">Quote Item</option>
+            <option value="quoterequest">QuoteRequest</option>
+            <option value="quotetemplate">QuoteTemplate</option>
             <option value="region">Region</option>
             <option value="role">Role</option>
-            <option value="scheduling-queue">Scheduling Queue</option>
-            <option value="service-item">Service Item</option>
-            <option value="service-line">Service Line</option>
-            <option value="service-recurrence">ServiceRecurrence</option>
-            <option value="service-request">ServiceRequest</option>
-            <option value="service-template">ServiceTemplate</option>
+            <option value="schedulingqueue">Scheduling Queue</option>
+            <option value="serviceline">Service Line</option>
+            <option value="servicerecurrence">ServiceRecurrence</option>
+            <option value="servicerequest">ServiceRequest</option>
+            <option value="servicetemplate">ServiceTemplate</option>
             <option value="tag">Tag</option>
-            <option value="task">Task</option>
-            <option value="task-instance">Taskinstance</option>
-            <option value="task-list">Tasklist</option>
-            <option value="tax-rate">Tax Rate</option>
-            <option value="tax-group">TaxGroup</option>
+            <option value="taxrate">Tax Rate</option>
+            <option value="taxgroup">TaxGroup</option>
             <option value="terms">Terms</option>
-            <option value="time-card">Time Card</option>
-            <option value="time-card-comment">Time Card Comment</option>
-            <option value="time-card-day-log">Time Card Day Log</option>
-            <option value="token">Token</option>
             <option value="user">User</option>
-            <option value="user-absence">User Absence</option>
-            <option value="user-group-label">User Group Label</option>
-            <option value="user-value">User Value</option>
+            <option value="userabsence">User Absence</option>
+            <option value="usergrouplabel">User Group Label</option>
             <option value="warehouse">Warehouse</option>
             <option value="webhook">Webhook</option>
         </select>
-        
     </div>
     <div class="form-row" >
         <label for="node-input-limit"><i class="fa fa-keyboard"></i> Limit</label>
@@ -107,8 +103,63 @@
         <label for="node-input-page"><i class="fa fa-clock"></i> Page</label>
         <input type="number" id="node-input-page" placeholder="Enter the page">
     </div>
+    <div class="form-row" id="jobstatus">
+        <label> Job Status</label>
+        <div class="checkbox-row">
+            <input type="checkbox" id="jobstatus-all" class="jobstatus-option" value="all">
+            <label for="jobstatus-all">All</label>
+        </div>
+        <div class="checkbox-row">
+            <input type="checkbox" id="jobstatus-new" class="jobstatus-option" value="new">
+            <label for="jobstatus-new">New</label>
+        </div>
+        <div class="checkbox-row">
+            <input type="checkbox" id="jobstatus-scheduled" class="jobstatus-option" value="scheduled">
+            <label for="jobstatus-scheduled">Scheduled</label>
+        </div>
+        <div class="checkbox-row">
+            <input type="checkbox" id="jobstatus-canceled" class="jobstatus-option" value="canceled">
+            <label for="jobstatus-canceled">Canceled</label>
+        </div>
+        <div class="checkbox-row">
+            <input type="checkbox" id="jobstatus-bidding" class="jobstatus-option" value="bidding">
+            <label for="jobstatus-bidding">Bidding</label>
+        </div>
+        <div class="checkbox-row">
+            <input type="checkbox" id="jobstatus-closed" class="jobstatus-option" value="closed">
+            <label for="jobstatus-closed">Closed</label>
+        </div>
+        <div class="checkbox-row">
+            <input type="checkbox" id="jobstatus-invoiced" class="jobstatus-option" value="invoiced">
+            <label for="jobstatus-invoiced">Invoiced</label>
+        </div>
+        <div class="checkbox-row">
+            <input type="checkbox" id="jobstatus-completed" class="jobstatus-option" value="completed">
+            <label for="jobstatus-completed">Completed</label>
+        </div>
+     
+    </div>
+    
+    <style>
+        .checkbox-row {
+            align-items: center;
+            margin: 5px;
+        }
+    
+        .checkbox-row input[type="checkbox"] {
+            margin: 5px;
+            width: auto;
+        }
+    
+        .jobstatus-option {
+            width: auto;
+            margin: 0;
+        }
+    </style>
+    
+    
+    
 </script>
-
 <script type="text/html" data-help-name="get-st-data-nodee">
     <p>
         The <b>GET Data Node</b> is used to make a GET request to the ServiceTrade API or other endpoints.
@@ -124,6 +175,9 @@
     </p>
 </script>
 <script type="text/javascript">
+
+
+
     RED.nodes.registerType('get-st-data-node', {
         category: 'service trade',
         color: '#a6bbcf',
@@ -133,13 +187,54 @@
             url: { value: "" },
             servicetradeobject: { value: "" },
             page: { value: "" },
-            limit: { value: "" }
+            limit: { value: "" },
+            jobstatus: { value: [] }
         },
         inputs: 1,
         outputs: 1,
         icon: "font-awesome/fa-download",
         label: function () {
             return this.name || "GET ServiceTrade Data Node";
+        },
+        oneditprepare: function () {
+            const node = this;
+
+            if (Array.isArray(node.jobstatus)) {
+                $(".jobstatus-option").each(function () {
+                    if (node.jobstatus.includes($(this).val())) {
+                        $(this).prop("checked", true);
+                    }
+                });
+            }
+
+            function toggleJobStatusVisibility() {
+                const selected = $("#node-input-servicetradeobject").val();
+
+                if (selected === "job") {
+                    $("#jobstatus").show();
+                } else {
+                    $("#jobstatus").hide();
+                }
+            }
+
+            toggleJobStatusVisibility();
+
+            $("#node-input-servicetradeobject").on("change", toggleJobStatusVisibility);
+        },
+
+        oneditsave: function () {
+            const selectedStatuses = [];
+            $(".jobstatus-option:checked").each(function () {
+                selectedStatuses.push($(this).val());
+            });
+            this.jobstatus = selectedStatuses;
+            console.log(selectedStatuses);
+
         }
+
+
+
     });
+
+
 </script>
