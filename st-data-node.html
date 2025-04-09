@@ -101,7 +101,7 @@
     </div>
     <div class="form-row">
         <label for="node-input-page"><i class="fa fa-clock"></i> Page</label>
-        <input type="number" id="node-input-page" placeholder="Enter the page">
+        <input type="text" id="node-input-page" placeholder="Enter the page">
     </div>
     <div class="form-row" id="jobstatus">
         <label> Job Status</label>
@@ -214,6 +214,8 @@
                     $("#jobstatus").show();
                 } else {
                     $("#jobstatus").hide();
+                    $(".jobstatus-option").prop("checked", false);
+
                 }
             }
 

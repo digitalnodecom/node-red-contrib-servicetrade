@@ -16,7 +16,7 @@ module.exports = function (RED) {
                 let requestUrl = msg.url || config.url;
                 const servicetradeobject = msg.servicetradeobject || config.servicetradeobject;
                 const limit = msg.limit || config.limit;
-                const page = msg.page || config.page;
+                const page = typeof msg.page !== 'undefined' ? msg.page : config.page;
                 const jobstatus = msg.jobstatus || config.jobstatus; // coming from frontend
 
                 if (!requestUrl) {
@@ -34,11 +34,12 @@ module.exports = function (RED) {
                 if (limit) params.append('limit', limit);
                 if (page) params.append('page', page);
 
-                if (jobstatus && Array.isArray(jobstatus)) {
-                    params.append('status', jobstatus.join(',')); // <-- comma-separated values
-                } else if (typeof jobstatus === 'string') {
+                if (Array.isArray(jobstatus) && jobstatus.length > 0) {
+                    params.append('status', jobstatus.join(','));
+                } else if (typeof jobstatus === 'string' && jobstatus.trim() !== '') {
                     params.append('status', jobstatus);
                 }
+                
 
                 const queryString = params.toString();
                 if (queryString) {
@@ -62,6 +63,7 @@ module.exports = function (RED) {
                 msg.page = page;
                 msg.servicetradeobject = servicetradeobject;
                 msg.jobstatus = jobstatus;
+                msg.url = requestUrl;
 
                 send(msg);
                 done();
